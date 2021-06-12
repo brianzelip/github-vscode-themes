@@ -1,0 +1,21 @@
+{
+  "name": "github-vscode-themes",
+  "version": "0.0.0",
+  "description": "npm package wrapper around Primer's (unpublished) github-vscode-theme source.",
+  "main": "index.js",
+  "scripts": {},
+  "author": {
+    "name": "Brian Zelip",
+    "url": "https://zelip.me"
+  },
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/github-vscode-themes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brianzelip/github-vscode-themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brianzelip/github-vscode-themes/issues"
+  },
+  "keywords": []
+}
