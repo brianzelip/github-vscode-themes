@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/brianzelip/github-vscode-themes/issues"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@octokit/request": "^5.6.0",
+    "dotenv": "^10.0.0"
+  }
 }
