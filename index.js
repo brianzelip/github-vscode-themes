@@ -1,5 +1,5 @@
-const latestTag = require('./latest_vscode_theme_tag.js');
+const latest = require('./latest_vscode_theme_tag.js');
 
-latestTag().then((value) => {
+latest().then((value) => {
   console.log(value);
 });
