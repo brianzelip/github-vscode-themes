@@ -4,6 +4,14 @@
   "description": "npm package wrapper around Primer's (unpublished) github-vscode-theme source.",
   "main": "index.js",
   "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@octokit/request": "^5.6.0",
+    "dotenv": "^10.0.0"
+  },
+  "config": {
+    "latestUpstream": "v4.1.1"
+  },
   "author": {
     "name": "Brian Zelip",
     "url": "https://zelip.me"
@@ -17,9 +25,5 @@
   "bugs": {
     "url": "https://github.com/brianzelip/github-vscode-themes/issues"
   },
-  "keywords": [],
-  "devDependencies": {
-    "@octokit/request": "^5.6.0",
-    "dotenv": "^10.0.0"
-  }
+  "keywords": []
 }

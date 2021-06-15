@@ -12,7 +12,19 @@ I want to [use](https://github.com/brianzelip/hyper-github-dark-dimmed) the buil
 
 - Query github api for github-vscode-theme latest release tag
 
-2. Clone vscode theme
+2. Test if latest is different from previous latest TODO
+
+- Track vscode the latest version via [package.json `config` property](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#config)
+
+```json
+{
+  "config": {
+    "latestUpstream": "v4.1.1"
+  }
+}
+```
+
+3. Clone vscode theme
 
 ```bash
 git clone git@github.com:primer/github-vscode-theme.git ./temp
@@ -20,39 +32,47 @@ cd temp
 git checkout $LATEST
 ```
 
-3. Build themes
+- See [Setting an environment variable for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable)
 
 ```bash
-npm i
+# Set environment variable `tag` from latest version tag as stdout
+tag="$(node index.js)"
+echo $tag # v4.1.1
+```
+
+4. Build themes
+
+```bash
+npm ci
 npm run build
 ```
 
-4. Copy themes to dist
+5. Copy themes to dist
 
 ```bash
 cp themes/*.json ../dist/
 ```
 
-5. Cleanup
+6. Cleanup
 
 ```bash
 cd ..
 rm -rf temp
 ```
 
-6. Run tests TODO
+7. Run tests TODO
 
-7. Update changelog TODO
+8. Update changelog TODO
 
-8. Bump version to vscode theme's latest version
+9. Bump version to vscode theme's latest version
 
-9. Commit new release
+10. Commit new release
 
-10. Tag new release
+11. Tag new release
 
-11. Push
+12. Push
 
-12. Publish
+13. Publish
 
 ## Install
 
