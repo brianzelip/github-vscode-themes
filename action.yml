@@ -1,0 +1,7 @@
+name: Log latest
+description: Log latest github-vscode-theme release version
+author: Brian Zelip
+
+runs:
+  using: 'node12'
+  main: 'index.js'
