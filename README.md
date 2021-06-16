@@ -49,6 +49,8 @@ npm run build
 
 5. Copy themes to dist
 
+- Should clean up dist before adding new data, something like `rm ./dist/*.json`
+
 ```bash
 cp themes/*.json ../dist/
 ```

@@ -16,15 +16,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_API_PAT }}
 
       # Runs a single command using the runners shell
       - name: Clone and checkout latest github-vscode-theme release
         run: |
-          rm ./dist/*.json
           latest_tag="$(curl \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/primer/github-vscode-theme/releases/latest \
-            -u "brianzelip:${{ secrets.GH_API_PAT }}" | jq -r '.tag_name')" >> $GITHUB_ENV
+            -u "brianzelip:${{ secrets.GH_API_PAT }}" | jq -r '.tag_name')"
           git clone https://github.com/primer/github-vscode-theme.git
           cd ./github-vscode-theme
           git checkout $latest_tag
