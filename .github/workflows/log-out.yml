@@ -18,16 +18,21 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Clone latest github-vscode-theme
+      - name: Clone and checkout latest github-vscode-theme release
         run: |
           latest_tag="$(curl \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/primer/github-vscode-theme/releases/latest \
             -u "brianzelip:${{ secrets.GH_API_PAT }}" | jq -r '.tag_name')" >> $GITHUB_ENV
-          git clone https://github.com/primer/github-vscode-theme.git ./temp
-          cd ./temp
+          git clone https://github.com/primer/github-vscode-theme.git
+          cd ./github-vscode-theme
           git checkout $latest_tag
-          ls
+          npm ci
+          npm run build
+          cp themes/*.json ../dist/
+          cd ..
+          rm -rf ./github-vscode-theme
+          echo "$(ls)"
 
       # Runs a set of commands using the runners shell
 
