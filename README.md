@@ -40,6 +40,8 @@ tag="$(node index.js)"
 echo $tag # v4.1.1
 ```
 
+- See [this example from !so](https://stackoverflow.com/questions/58465057/trigger-a-github-action-when-another-repository-creates-a-new-release) --> https://github.com/peter-evans/create-pull-request/blob/master/docs/examples.md#update-swaggerui-for-github-pages
+
 4. Build themes
 
 ```bash
