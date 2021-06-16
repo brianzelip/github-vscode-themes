@@ -32,7 +32,7 @@ jobs:
           cp themes/*.json ../dist/
           cd ..
           rm -rf ./github-vscode-theme
-          echo "$(ls)"
+          echo "$(ls ./dist)"
 
       # Runs a set of commands using the runners shell
 
