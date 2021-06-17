@@ -19,8 +19,22 @@ jobs:
         with:
           token: ${{ secrets.GH_API_PAT }}
 
-      # Runs a single command using the runners shell
+      - name: Get latest github-vscode-theme
+        id: versions
+        run: |
+          echo ::set-output name=upstream::$(curl \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/primer/github-vscode-theme/releases/latest \
+            -u "brianzelip:${{ secrets.GH_API_PAT }}" | jq -r '.tag_name')"
+          )
+          echo ::set-output name=local::$(cat package.json | jq -r '.config.latestUpstream')
+
+      - name: Compare versions
+        if: steps.versions.outputs.local == steps.versions.outputs.upstream
+        run: echo "The versions are equal!"
+
       - name: Clone and checkout latest github-vscode-theme release
+        if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
           latest_tag="$(curl \
             -H "Accept: application/vnd.github.v3+json" \
