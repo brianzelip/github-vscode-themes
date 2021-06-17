@@ -28,7 +28,6 @@ jobs:
       - name: Compare versions
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: echo "The versions are equal!"
-
       - name: Clone and checkout latest github-vscode-theme release
         run: |
           latest_tag="$(curl \
