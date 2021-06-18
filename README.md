@@ -70,6 +70,12 @@ rm -rf temp
 
 9. Bump version to vscode theme's latest version
 
+- WOW, overwriting package-lock.json via jq output doesn't work without some awkward work around. It's as if the lock file won't let itself be overwritten with any content, it just gets its content removed but not rewritten via this command: `jq '.packages[""].version |= "4.1.1"' package-lock.json > package-lock.json`
+- also, the above wouldn't be a problem if
+  a) the github actions runner ubuntu-latest had npm v7 installed instead of v6
+  b) I could run `npm i npm@latest -g` on the gh actions runner
+  (lock file is different from v6 to v7; locally v7 is used)
+
 10. Commit new release
 
 11. Tag new release
