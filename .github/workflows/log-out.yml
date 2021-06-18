@@ -42,6 +42,7 @@ jobs:
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
           npm --no-git-tag-version version ${{steps.versions.outputs.upstream}}
+          npm i # bump remaining lock file property
           cat package.json
           cat package-lock.json
           # bump changelog
