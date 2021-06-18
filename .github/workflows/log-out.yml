@@ -43,7 +43,7 @@ jobs:
         run: |
           npm --no-git-tag-version version ${{steps.versions.outputs.upstream}}
           # action runner uses npm v6, so rebuild lock file (in older lockfileVersion) for proper bump
-          npm i
+          cat package-lock.json | jq '.packages[""].version |= "${{steps.versions.outputs.upstream}}"' > package-lock.json
           cat package.json
           cat package-lock.json
           # bump changelog
