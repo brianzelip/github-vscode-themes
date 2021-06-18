@@ -42,6 +42,8 @@ jobs:
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
           npm --no-git-tag-version version ${{steps.versions.outputs.upstream}}
+          cat package.json
+          cat package-lock.json
           # bump changelog
 
       # Runs a set of commands using the runners shell
