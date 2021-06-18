@@ -38,12 +38,6 @@ jobs:
           cd ..
           rm -rf ./github-vscode-theme
 
-      - name: Upgrade npm to v7
-        run: |
-          npm -v
-          npm install npm@latest -g
-          npm -v
-
       - name: Update metadata
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
