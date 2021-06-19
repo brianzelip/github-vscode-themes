@@ -52,7 +52,7 @@ jobs:
         run: |
           # figure out how to use sed to update changelog
           sed '0,/##/s//## [4.1.2] - 2021-08-09\n\n&/' CHANGELOG.md
-          sed -i "$ a [4.1.2]: https://github.com/primer/github-vscode-theme/releases/tag/v4.1.2" CHANGELOG.md
+          sed -n -i "$ a [4.1.2]: https://github.com/primer/github-vscode-theme/releases/tag/v4.1.2" CHANGELOG.md
           cat CHANGELOG.md
 
       # Runs a set of commands using the runners shell
