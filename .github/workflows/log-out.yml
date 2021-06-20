@@ -26,8 +26,9 @@ jobs:
           echo ::set-output name=local::$(cat package.json | jq -r '.config.latestUpstream')
 
       - name: Compute version from tag
-        id: formattedVersions
-        run: echo "::set-output name=upstreamTrimmed::${{ format( '${{{ steps.versions.outputs.upstream }}} {0} {1}', 'hello', 'world' ) }}"
+        id: versionsTrimmed
+        run: |
+          echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | echo 'v4.1.1' | sed -E 's/^.{1}//' "
 
       - name: Update themes
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
