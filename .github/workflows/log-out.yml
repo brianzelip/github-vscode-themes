@@ -38,6 +38,9 @@ jobs:
           # -E on mac instead of -r
           echo "::set-output name=upstreamTagTrimmed::$(echo ${{steps.versions.outputs.upstreamTag}} | sed -r 's/^.{1}//')"
           echo "::set-output name=localTagTrimmed::$(echo ${{steps.versions.outputs.localTag}} | sed -r 's/^.{1}//')"
+          # Verify work
+          echo "upstreamTag: ${{steps.versions.outputs.upstreamTag}}"
+          echo "localTag: ${{steps.versions.outputs.localTag}}"
 
       - name: Update themes
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
@@ -51,7 +54,6 @@ jobs:
           cp themes/*.json ../dist/
           cd ..
           rm -rf ./github-vscode-theme
-          git diff
 
       - name: Bump versions
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
