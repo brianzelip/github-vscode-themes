@@ -28,7 +28,7 @@ jobs:
       - name: Compute version from tag
         id: versionsTrimmed
         run: |
-          echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | sed -E 's/^.{1}//' "
+          echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | sed -E 's/^.{1}//')"
 
       - name: Update themes
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
