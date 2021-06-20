@@ -25,10 +25,13 @@ jobs:
           echo ::set-output name=upstream::$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/primer/github-vscode-theme/releases/latest -u "brianzelip:${{ secrets.GH_API_PAT }}" | jq -r '.tag_name')
           echo ::set-output name=local::$(cat package.json | jq -r '.config.latestUpstream')
 
-      - name: Compute version from tag
+      - name: Trim version strings
         id: versionsTrimmed
+        if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
-          echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | sed -E 's/^.{1}//')"
+          # Trim the v from tag names (ie: v4.1.1)
+          echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | sed -r 's/^.{1}//')"
+          echo "::set-output name=localTrimmed::$(echo ${{steps.versions.outputs.local}} | sed -r 's/^.{1}//')"
 
       - name: Update themes
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
@@ -56,8 +59,8 @@ jobs:
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
           # figure out how to use sed to update changelog
-          sed '0,/##/s//## [${{steps.formattedVersions.outputs.upstreamTrimmed}}] - 2021-08-09\n\n&/' CHANGELOG.md
-          sed -n -i "$ a [${{steps.formattedVersions.outputs.upstreamTrimmed}}]: https://github.com/primer/github-vscode-theme/releases/tag/v4.1.2" CHANGELOG.md
+          sed '0,/##/s//## [${{steps.versionsTrimmed.outputs.upstreamTrimmed}}] - 2021-08-09\n\n&/' CHANGELOG.md
+          sed -n -i "$ a [${{steps.versionsTrimmed.outputs.upstreamTrimmed}}]: https://github.com/primer/github-vscode-theme/releases/tag/v4.1.2" CHANGELOG.md
           cat CHANGELOG.md
 
       # Runs a set of commands using the runners shell
