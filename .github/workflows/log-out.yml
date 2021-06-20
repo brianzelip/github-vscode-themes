@@ -27,7 +27,7 @@ jobs:
 
       - name: Compute version from tag
         id: formattedVersions
-        run: echo "::set-output name=upstreamTrimmed::${{ format( '${{ steps.versions.outputs.upstream }} {0} {1}', 'hello' ) }}"
+        run: echo "::set-output name=upstreamTrimmed::${{ format( '${{ steps.versions.outputs.upstream }} {0} {1}', 'hello', 'world' ) }}"
 
       - name: Update themes
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
