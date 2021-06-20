@@ -16,21 +16,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_API_PAT }}
 
-      - name: Get latest github-vscode-theme release
-        id: upstream
+      - name: Save latest upstream release metadata to file
+        id: upstream-release
         run: |
-          echo ::set-output name=release::$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/primer/github-vscode-theme/releases/latest -u "brianzelip:${{ secrets.GH_API_PAT }}")
+          curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/primer/github-vscode-theme/releases/latest -u "brianzelip:${{ secrets.GH_API_PAT }}" > temp-release.json
 
       - name: Define version vars
         id: versions
         run: |
-          echo ::set-output name=upstreamTag::$('${{steps.upstream.outputs.release}}' | jq -r '.tag_name')
-          echo ::set-output name=upstreamDate::$('${{steps.upstream.outputs.release}}' | jq -r '.created_at' | cut -c 1-10)
-          echo ::set-output name=upstreamUrl::$('${{steps.upstream.outputs.release}}' | jq -r '.html_url')
-          echo ::set-output name=localTag::$(cat package.json | jq -r '.config.latestUpstreamReleaseTag')
+          echo ::set-output name=upstreamTag::$(jq -r '.tag_name' temp-release.json)
+          echo ::set-output name=upstreamDate::$(jq -r '.created_at' temp-release.json | cut -c 1-10)
+          echo ::set-output name=upstreamUrl::$(jq -r '.html_url' temp-release.json)
+          echo ::set-output name=localTag::$(jq -r '.config.latestUpstreamReleaseTag' package.json)
 
       - name: Trim version strings
         id: trims
