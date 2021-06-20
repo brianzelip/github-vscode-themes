@@ -94,6 +94,19 @@ npm install github-vscode-themes
 
 Open a PR!
 
+## References
+
+- [Update SwaggerUI for GitHub Pages example at peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request/blob/master/docs/examples.md#update-swaggerui-for-github-pages)
+- [How do I update a single value in a json document using jq?](https://stackoverflow.com/a/31037640/2145103)
+- [jq Play](https://jqplay.org/)
+- https://keepachangelog.com/en/1.0.0/
+- [Append text to a file using sed](https://stackoverflow.com/a/30219386/2145103)
+- [How to use sed to replace only the first occurrence in a file?](https://stackoverflow.com/a/148473/2145103)
+- [GNU sed REPL](https://sed.js.org/)
+- [How can I strip first X characters from string using sed?](https://stackoverflow.com/a/11470096/2145103)
+- [How do I fix “sed: illegal option — r” in macOS Sierra Android build?](https://stackoverflow.com/q/43696304/2145103)
+- [Jq to replace text directly on file (like sed -i)](https://stackoverflow.com/a/36577521/2145103)
+
 ## Author
 
 Brian Zelip, https://zelip.me
