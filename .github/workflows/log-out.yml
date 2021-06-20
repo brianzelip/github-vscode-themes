@@ -30,6 +30,7 @@ jobs:
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
           # Trim the v from tag names (ie: v4.1.1)
+          # -E on mac instead of -r
           echo "::set-output name=upstreamTrimmed::$(echo ${{steps.versions.outputs.upstream}} | sed -r 's/^.{1}//')"
           echo "::set-output name=localTrimmed::$(echo ${{steps.versions.outputs.local}} | sed -r 's/^.{1}//')"
 
@@ -49,11 +50,16 @@ jobs:
       - name: Bump versions
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
         run: |
+          # Bump main version prop in package*.json
           npm --no-git-tag-version version ${{steps.versions.outputs.upstream}}
           # Runner uses legacy npm v6, so bump v7 lockfile manually with
-          # extra step since it refuses to be overwritten via jq output
-          jq '.packages[""].version |= "${{steps.versions.outputs.upstream}}"' package-lock.json > temp.json
-          mv temp.json package-lock.json
+          jq '.packages[""].version |= "${{steps.versions.outputs.upstream}}"' package-lock.json > temp-lock.json
+          # jq won't do in-place updates in a file (like `sed -i`), so recreate lock file
+          mv temp-lock.json package-lock.json
+          # Record latest upstream release for the future
+          jq '.config.latestUpstream |= "${{steps.versions.outputs.upstream}}"' package.json > temp-pkg.json
+          mv temp-pkg.json package.json
+          cat package.json
 
       - name: Update changelog
         if: steps.versions.outputs.local != steps.versions.outputs.upstream
