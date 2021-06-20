@@ -27,9 +27,9 @@ jobs:
       - name: Define version vars
         id: versions
         run: |
-          echo ::set-output name=upstreamTag::$(cat ${{steps.upstream.outputs.release}} | jq -r '.tag_name')
-          echo ::set-output name=upstreamDate::$(cat ${{steps.upstream.outputs.release}} | jq -r '.created_at' | cut -c 1-10)
-          echo ::set-output name=upstreamUrl::$(cat ${{steps.upstream.outputs.release}} | jq -r '.html_url')
+          echo ::set-output name=upstreamTag::$(${{steps.upstream.outputs.release}} | jq -r '.tag_name')
+          echo ::set-output name=upstreamDate::$(${{steps.upstream.outputs.release}} | jq -r '.created_at' | cut -c 1-10)
+          echo ::set-output name=upstreamUrl::$(${{steps.upstream.outputs.release}} | jq -r '.html_url')
           echo ::set-output name=localTag::$(cat package.json | jq -r '.config.latestUpstreamReleaseTag')
 
       - name: Trim version strings
