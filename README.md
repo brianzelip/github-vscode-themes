@@ -106,6 +106,10 @@ Open a PR!
 - [How can I strip first X characters from string using sed?](https://stackoverflow.com/a/11470096/2145103)
 - [How do I fix “sed: illegal option — r” in macOS Sierra Android build?](https://stackoverflow.com/q/43696304/2145103)
 - [Jq to replace text directly on file (like sed -i)](https://stackoverflow.com/a/36577521/2145103)
+- [Grabbing the first [x] characters for a string from a pipe](https://unix.stackexchange.com/a/3455/161921)
+- [sed Manual](https://www.gnu.org/software/sed/manual/sed.html)
+- [How to replace paired square brackets with other syntax with sed?](https://stackoverflow.com/a/10646534/2145103)
+- [sed replace ' with \'](https://stackoverflow.com/a/11514818/2145103)
 
 ## Author
 
