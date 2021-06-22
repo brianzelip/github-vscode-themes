@@ -75,9 +75,9 @@ jobs:
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
         run: |
           # figure out how to use sed to update changelog
-          sed '0,/##/s//## [${{steps.trims.outputs.upstreamTagTrimmed}}] - ${{steps.versions.outputs.upstreamDate}}\n\n&/' CHANGELOG.md
+          sed -i '0,/##/s//## [${{steps.trims.outputs.upstreamTagTrimmed}}] - ${{steps.versions.outputs.upstreamDate}}\n\n&/' CHANGELOG.md
           # sed '/[${{steps.trims.outputs.localTagTrimmed}}]:/s//[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrl}}\n\n&/" CHANGELOG.md
-          sed 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: https:\/\/www.example.com\n&/' CHANGELOG.md
+          sed -i 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: https:\/\/www.example.com\n&/' CHANGELOG.md
           # Verify work
           cat CHANGELOG.md
         # TODO - insert the second changelog update (link to tag) before the most recent link to tag (ie: instead of appending to the bottom of file, insert before most recent link)
