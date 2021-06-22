@@ -27,7 +27,7 @@ jobs:
         run: |
           echo ::set-output name=upstreamTag::$(jq -r '.tag_name' temp-release.json)
           echo ::set-output name=upstreamDate::$(jq -r '.created_at' temp-release.json | cut -c 1-10)
-          echo ::set-output name=upstreamUrl::$(jq -r '.html_url' temp-release.json)
+          echo ::set-output name=upstreamUrlEscaped::$(jq -r '.html_url' temp-release.json | sed 's/\//\\\//g')
           echo ::set-output name=localTag::$(jq -r '.config.latestUpstreamReleaseTag' package.json)
 
       - name: Trim version strings
@@ -76,8 +76,8 @@ jobs:
         run: |
           # figure out how to use sed to update changelog
           sed -i '0,/##/s//## [${{steps.trims.outputs.upstreamTagTrimmed}}] - ${{steps.versions.outputs.upstreamDate}}\n\n&/' CHANGELOG.md
-          # sed '/[${{steps.trims.outputs.localTagTrimmed}}]:/s//[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrl}}\n\n&/" CHANGELOG.md
-          sed -i 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrl}}\n&/' CHANGELOG.md
+          # sed '/[${{steps.trims.outputs.localTagTrimmed}}]:/s//[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrlEscaped}}\n\n&/" CHANGELOG.md
+          sed -i 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrlEscaped}}\n&/' CHANGELOG.md
           # Verify work
           cat CHANGELOG.md
         # TODO - insert the second changelog update (link to tag) before the most recent link to tag (ie: instead of appending to the bottom of file, insert before most recent link)
