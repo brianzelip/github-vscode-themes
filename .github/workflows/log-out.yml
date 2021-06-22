@@ -1,20 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Log out
 
-# Controls when the action will run.
 on: [push, workflow_dispatch]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Save latest upstream release metadata to file
@@ -29,11 +21,6 @@ jobs:
           echo ::set-output name=upstreamDate::$(jq -r '.created_at' temp-release.json | cut -c 1-10)
           echo ::set-output name=upstreamUrlEscaped::$(jq -r '.html_url' temp-release.json | sed 's/\//\\\//g')
           echo ::set-output name=localTag::$(jq -r '.config.latestUpstreamReleaseTag' package.json)
-          # Verify work
-          echo "upstreamTag: ${{ steps.versions.outputs.upstreamTag }}"
-          echo "upstreamDate: ${{ steps.versions.outputs.upstreamDate }}"
-          echo "upstreamUrlEscaped: ${{ steps.versions.outputs.upstreamUrlEscaped }}"
-          echo "localTag: ${{ steps.versions.outputs.localTag }}"
 
       - name: Trim version strings
         id: trims
@@ -43,9 +30,15 @@ jobs:
           # -E on mac instead of -r
           echo "::set-output name=upstreamTagTrimmed::$(echo ${{steps.versions.outputs.upstreamTag}} | sed -r 's/^.{1}//')"
           echo "::set-output name=localTagTrimmed::$(echo ${{steps.versions.outputs.localTag}} | sed -r 's/^.{1}//')"
-          # Verify work
-          echo "upstreamTagTrimmed: ${{steps.versions.outputs.upstreamTag}}"
-          echo "localTagTrimmed: ${{steps.versions.outputs.localTag}}"
+
+      - name: Verify var data
+        run: |
+          echo "upstreamTag: ${{ steps.versions.outputs.upstreamTag }}"
+          echo "upstreamDate: ${{ steps.versions.outputs.upstreamDate }}"
+          echo "upstreamUrlEscaped: ${{ steps.versions.outputs.upstreamUrlEscaped }}"
+          echo "localTag: ${{ steps.versions.outputs.localTag }}"          
+          echo "upstreamTagTrimmed: ${{steps.trims.outputs.upstreamTagTrimmed}}"
+          echo "localTagTrimmed: ${{steps.trims.outputs.localTagTrimmed}}"
 
       - name: Update themes
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
@@ -83,11 +76,3 @@ jobs:
           sed -i 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrlEscaped}}\n&/' CHANGELOG.md
           # Verify work
           cat CHANGELOG.md
-        # TODO - insert the second changelog update (link to tag) before the most recent link to tag (ie: instead of appending to the bottom of file, insert before most recent link)
-
-      # Runs a set of commands using the runners shell
-
-#       - name: Run a multi-line script
-#         run: |
-#           echo Add other actions to build,
-#           echo test, and deploy your project.
