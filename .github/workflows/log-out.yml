@@ -58,7 +58,7 @@ jobs:
           rm -rf ./github-vscode-theme
           rm temp-release.json
           # See what else remains
-          ls
+          ls -a
 
       - name: Bump versions
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
