@@ -32,6 +32,7 @@ jobs:
           echo "::set-output name=localTagTrimmed::$(echo ${{steps.versions.outputs.localTag}} | sed -r 's/^.{1}//')"
 
       - name: Verify var data
+        if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
         run: |
           echo "upstreamTag: ${{ steps.versions.outputs.upstreamTag }}"
           echo "upstreamDate: ${{ steps.versions.outputs.upstreamDate }}"
@@ -43,22 +44,28 @@ jobs:
       - name: Update themes
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
         run: |
+          rm -rf ./dist
           git clone https://github.com/primer/github-vscode-theme.git
           cd ./github-vscode-theme
           git checkout ${{ steps.versions.outputs.upstreamTag }}
           npm ci
           npm run build
-          rm ../dist/*.json
-          cp themes/*.json ../dist/
-          cd ..
+          mv themes ../dist
+
+      - name: Clean up
+        if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
+        run: |
           rm -rf ./github-vscode-theme
+          rm temp-release.json
+          # See what else remains
+          ls
 
       - name: Bump versions
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
         run: |
           # Bump main version prop in package*.json
           npm --no-git-tag-version version ${{steps.versions.outputs.upstreamTag}}
-          # Runner uses legacy npm v6, so bump v7 lockfile manually with
+          # Runner uses legacy npm v6, so bump v7 lockfile manually
           jq '.packages[""].version |= "${{steps.versions.outputs.upstreamTag}}"' package-lock.json > temp-lock.json
           # jq won't do in-place updates in a file (like `sed -i`), so recreate lock file
           mv temp-lock.json package-lock.json
@@ -72,7 +79,9 @@ jobs:
       - name: Update changelog
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
         run: |
+          # Add top level release info
           sed -i '0,/##/s//## [${{steps.trims.outputs.upstreamTagTrimmed}}] - ${{steps.versions.outputs.upstreamDate}}\n\n&/' CHANGELOG.md
+          # Add bottom level release link
           sed -i 's/^\[${{steps.trims.outputs.localTagTrimmed}}\]:/[${{steps.trims.outputs.upstreamTagTrimmed}}]: ${{steps.versions.outputs.upstreamUrlEscaped}}\n&/' CHANGELOG.md
           # Verify work
           cat CHANGELOG.md
