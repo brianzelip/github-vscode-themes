@@ -1,8 +1,10 @@
 # github-vscode-themes
 
+![npm](https://img.shields.io/npm/v/github-vscode-themes)
+
 This is a npm package wrapper around [Primer's github-vscode-theme](https://github.com/primer/github-vscode-theme).
 
-## Reason
+## Motivation
 
 I want to [use](https://github.com/brianzelip/hyper-github-dark-dimmed) the built themes from github-vscode-theme, but github-vscode-theme is not published to npm.
 

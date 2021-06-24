@@ -94,9 +94,11 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generated"
+          git commit -m "Auto build and bump to upstream ${{steps.versions.outputs.upstreamTag}} 🤖 🎉"
           git push
 
       - name: Tag new release
         if: steps.versions.outputs.localTag != steps.versions.outputs.upstreamTag
-        run: git tag ${{steps.versions.outputs.upstreamTag}}
+        run: |
+          git tag ${{steps.versions.outputs.upstreamTag}}
+          git push origin ${{steps.versions.outputs.upstreamTag}}
