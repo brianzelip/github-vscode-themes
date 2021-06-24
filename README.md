@@ -112,6 +112,7 @@ Open a PR!
 - [sed Manual](https://www.gnu.org/software/sed/manual/sed.html)
 - [How to replace paired square brackets with other syntax with sed?](https://stackoverflow.com/a/10646534/2145103)
 - [sed replace ' with \'](https://stackoverflow.com/a/11514818/2145103)
+- [Push a commit using the built-in token](https://github.com/actions/checkout#Push-a-commit-using-the-built-in-token)
 
 ## Author
 
