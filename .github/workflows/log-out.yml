@@ -94,7 +94,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Auto build and bump to upstream ${{steps.versions.outputs.upstreamTag}} 🤖 🎉"
+          git commit -m "🤖: Auto update to ${{steps.versions.outputs.upstreamTag}}"
           git push
 
       - name: Tag new release
