@@ -57,7 +57,7 @@ jobs:
         run: |
           rm -rf ./github-vscode-theme
           rm temp-release.json
-          # See what else remains
+          # Verify work
           ls -al
           ls -al dist/
 
