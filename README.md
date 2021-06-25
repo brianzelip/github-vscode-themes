@@ -2,6 +2,8 @@
 
 ![npm](https://img.shields.io/npm/v/github-vscode-themes)
 
+![sync upstream](https://github.com/brianzelip/github-vscode-themes/actions/workflows/sync-upstream.yml/badge.svg)
+
 This is a npm package wrapper around [Primer's github-vscode-theme](https://github.com/primer/github-vscode-theme).
 
 ## Motivation
