@@ -1,6 +1,8 @@
 name: Log out
 
-on: [push, workflow_dispatch]
+on:
+  schedule:
+    - cron: '34 13 * * *'
 
 jobs:
   build:
