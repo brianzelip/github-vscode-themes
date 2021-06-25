@@ -2,7 +2,7 @@ name: Sync upstream
 
 on:
   schedule:
-    - cron: '34 19 * * *'
+    - cron: '32 20 * * *'
 
 jobs:
   build:
