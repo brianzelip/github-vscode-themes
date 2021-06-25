@@ -16,19 +16,9 @@ I want to [use](https://github.com/brianzelip/hyper-github-dark-dimmed) the buil
 
 - Query github api for github-vscode-theme latest release tag
 
-2. Test if latest is different from previous latest TODO
+2. Compare upstream and local versions
 
-- Track vscode the latest version via [package.json `config` property](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#config)
-
-```json
-{
-  "config": {
-    "latestUpstream": "v4.1.1"
-  }
-}
-```
-
-3. Clone vscode theme
+3. If there's a new version, clone vscode theme
 
 ```bash
 git clone git@github.com:primer/github-vscode-theme.git ./temp
