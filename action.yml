@@ -1,5 +1,5 @@
-name: Log latest
-description: Log latest github-vscode-theme release version
+name: Sync upstream
+description: Sync with latest github-vscode-theme release version
 author: Brian Zelip
 
 runs:

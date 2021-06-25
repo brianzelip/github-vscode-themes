@@ -1,4 +1,4 @@
-name: Log out
+name: Sync upstream
 
 on:
   schedule:
