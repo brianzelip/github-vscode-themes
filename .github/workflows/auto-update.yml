@@ -1,8 +1,8 @@
-name: Sync upstream
+name: Auto update
 
 on:
   schedule:
-    - cron: '32 20 * * *'
+    - cron: '28 21 * * *'
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
           echo ::set-output name=upstreamTag::$(jq -r '.tag_name' temp-release.json)
           echo ::set-output name=upstreamDate::$(jq -r '.created_at' temp-release.json | cut -c 1-10)
           echo ::set-output name=upstreamUrlEscaped::$(jq -r '.html_url' temp-release.json | sed 's/\//\\\//g')
-          echo ::set-output name=localTag::$(jq -r '.version' package.json)
+          echo ::set-output name=localTag::v$(jq -r '.version' package.json)
 
       - name: Trim version strings
         id: trims
