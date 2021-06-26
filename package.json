@@ -1,7 +1,7 @@
 {
   "name": "github-vscode-themes",
-  "version": "4.1.1",
-  "description": "npm package wrapper around Primer's (unpublished) github-vscode-theme source.",
+  "version": "4.1.0",
+  "description": "npm package wrapper around Primer's (unpublished) github-vscode-theme.",
   "main": "index.js",
   "author": {
     "name": "Brian Zelip",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/brianzelip/github-vscode-themes/issues"
   },
-  "keywords": []
+  "keywords": [
+    "theming",
+    "GitHub Actions",
+    "Primer"
+  ]
 }
