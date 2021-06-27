@@ -68,7 +68,7 @@ jobs:
           # Bump main version prop in package*.json
           npm --no-git-tag-version version ${{ steps.versions.outputs.upstreamTag }}
           # Runner uses legacy npm v6 (lockfileVersion 1), so bump the npm v7 lockfileVersion 2 manually
-          jq '.packages[""].version |= "${{ steps.versions.outputs.upstreamTag }}"' package-lock.json > temp-lock.json
+          jq '.packages[""].version |= "${{ steps.trims.outputs.upstreamTagTrimmed }}"' package-lock.json > temp-lock.json
           # jq won't do in-place updates in a file (like `sed -i`), so recreate lock file
           mv temp-lock.json package-lock.json
           # Verify work
