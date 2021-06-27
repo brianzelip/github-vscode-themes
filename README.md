@@ -6,22 +6,23 @@ This is a simple npm package wrapper around Primer's [github-vscode-theme](https
 
 Primer's project is not published to npm, and requires a build step to create the theme json files.
 
-This package uses GitHub Actions to auto build Primer's latest release and publish the new theme files to npm.
+This package uses GitHub Actions to auto build Primer's latest release and publish the new theme files to npm. It started at v4.1.1, which was Primer's latest release when this package was created.
 
 ## Install
 
 ```bash
-npm install github-vscode-themes
+npm i -S github-vscode-themes
 ```
 
 ## Use
 
 ```js
 const darkDimmed = require('github-vscode-themes').darkDimmed;
-
 // Or
-
 import { darkDimmed } from 'github-vscode-themes';
+
+console.log(darkDimmed);
+// Logs an object, see ./dist for details
 ```
 
 Primer's project currently provides 5 different themes, which are available in this package via the following property names:
