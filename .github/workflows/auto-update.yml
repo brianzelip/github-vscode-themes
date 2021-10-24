@@ -49,8 +49,8 @@ jobs:
           git clone https://github.com/primer/github-vscode-theme.git
           cd ./github-vscode-theme
           git checkout ${{ steps.versions.outputs.upstreamTag }}
-          npm ci
-          npm run build
+          yarn install
+          yarn run build
           mv themes ../dist
 
       - name: Clean up
