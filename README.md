@@ -25,13 +25,14 @@ console.log(darkDimmed);
 // Logs an object, see ./dist for details
 ```
 
-Primer's project currently provides 5 different themes, which are available in this package via the following property names:
+Primer's project currently provides 6 different themes, which are available in this package via the following property names:
 
 1. `dark`
 2. `darkDefault`
 3. `darkDimmed`
-4. `light`
-5. `lightDefault`
+4. `darkHighContrast`
+5. `light`
+6. `lightDefault`
 
 ## Contributing
 
