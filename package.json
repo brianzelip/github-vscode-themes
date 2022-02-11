@@ -1,6 +1,6 @@
 {
   "name": "github-vscode-themes",
-  "version": "5.2.2",
+  "version": "6.0.0",
   "description": "npm package wrapper around Primer's (unpublished) github-vscode-theme.",
   "main": "index.js",
   "author": {
