@@ -78,6 +78,8 @@
     "statusBar.debuggingBackground": "#931c06",
     "statusBar.debuggingForeground": "#fff",
     "statusBarItem.prominentBackground": "#282e34",
+    "statusBarItem.remoteForeground": "#d1d5da",
+    "statusBarItem.remoteBackground": "#24292e",
     "editorGroupHeader.tabsBackground": "#1f2428",
     "editorGroupHeader.tabsBorder": "#1b1f23",
     "editorGroup.border": "#1b1f23",
@@ -200,6 +202,7 @@
         "constant",
         "entity.name.constant",
         "variable.other.constant",
+        "variable.other.enummember",
         "variable.language"
       ],
       "settings": {
@@ -420,6 +423,14 @@
       "settings": {
         "fontStyle": "bold",
         "foreground": "#e1e4e8"
+      }
+    },
+    {
+      "scope": [
+        "markup.underline"
+      ],
+      "settings": {
+        "fontStyle": "underline"
       }
     },
     {
