@@ -107,17 +107,15 @@
     "editorWidget.background": "#2d333b",
     "editor.foldBackground": "#636e7b1a",
     "editor.lineHighlightBackground": "#636e7b1a",
-    "editorLineNumber.foreground": "#768390",
+    "editorLineNumber.foreground": "#636e7b",
     "editorLineNumber.activeForeground": "#adbac7",
-    "editorIndentGuide.background": "#373e47",
-    "editorIndentGuide.activeBackground": "#444c56",
+    "editorIndentGuide.background": "#adbac71f",
+    "editorIndentGuide.activeBackground": "#adbac73d",
     "editorWhitespace.foreground": "#545d68",
     "editorCursor.foreground": "#539bf5",
     "editor.findMatchBackground": "#966600",
     "editor.findMatchHighlightBackground": "#eac55f80",
     "editor.linkedEditingBackground": "#539bf512",
-    "editor.inactiveSelectionBackground": "#539bf512",
-    "editor.selectionBackground": "#539bf533",
     "editor.selectionHighlightBackground": "#57ab5a40",
     "editor.wordHighlightBackground": "#636e7b80",
     "editor.wordHighlightBorder": "#636e7b99",
@@ -149,6 +147,7 @@
     "panelTitle.activeForeground": "#adbac7",
     "panelTitle.inactiveForeground": "#768390",
     "panelInput.border": "#444c56",
+    "debugIcon.breakpointForeground": "#e5534b",
     "debugConsole.infoForeground": "#768390",
     "debugConsole.warningForeground": "#c69026",
     "debugConsole.errorForeground": "#ff938a",
@@ -339,7 +338,6 @@
     {
       "scope": [
         "string",
-        "punctuation.definition.string",
         "string punctuation.section.embedded source"
       ],
       "settings": {
@@ -414,12 +412,6 @@
       }
     },
     {
-      "scope": "string source",
-      "settings": {
-        "foreground": "#adbac7"
-      }
-    },
-    {
       "scope": "string variable",
       "settings": {
         "foreground": "#6cb6ff"
@@ -462,6 +454,12 @@
       "scope": "support.variable",
       "settings": {
         "foreground": "#6cb6ff"
+      }
+    },
+    {
+      "scope": "support.type.property-name.json",
+      "settings": {
+        "foreground": "#8ddb8c"
       }
     },
     {
@@ -512,6 +510,14 @@
       ],
       "settings": {
         "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "fontStyle": "strikethrough"
       }
     },
     {

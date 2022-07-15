@@ -108,17 +108,17 @@
     "editor.foldBackground": "#9ea7b31a",
     "editor.lineHighlightBackground": "#9ea7b31a",
     "editor.lineHighlightBorder": "#71b7ff",
-    "editorLineNumber.foreground": "#f0f3f6",
+    "editorLineNumber.foreground": "#9ea7b3",
     "editorLineNumber.activeForeground": "#f0f3f6",
-    "editorIndentGuide.background": "#7a828e",
-    "editorIndentGuide.activeBackground": "#7a828e",
+    "editorIndentGuide.background": "#f0f3f61f",
+    "editorIndentGuide.activeBackground": "#f0f3f63d",
     "editorWhitespace.foreground": "#7a828e",
     "editorCursor.foreground": "#71b7ff",
     "editor.findMatchBackground": "#e09b13",
     "editor.findMatchHighlightBackground": "#fbd66980",
     "editor.linkedEditingBackground": "#71b7ff12",
-    "editor.inactiveSelectionBackground": "#71b7ff12",
-    "editor.selectionBackground": "#71b7ff33",
+    "editor.inactiveSelectionBackground": "#9ea7b3",
+    "editor.selectionBackground": "#ffffff",
     "editor.selectionHighlightBackground": "#26cd4d40",
     "editor.wordHighlightBackground": "#9ea7b380",
     "editor.wordHighlightBorder": "#9ea7b399",
@@ -126,6 +126,7 @@
     "editor.wordHighlightStrongBorder": "#9ea7b399",
     "editorBracketMatch.background": "#26cd4d40",
     "editorBracketMatch.border": "#26cd4d99",
+    "editor.selectionForeground": "#0a0c10",
     "editorInlayHint.background": "#bdc4cc33",
     "editorInlayHint.foreground": "#f0f3f6",
     "editorInlayHint.typeBackground": "#bdc4cc33",
@@ -150,6 +151,7 @@
     "panelTitle.activeForeground": "#f0f3f6",
     "panelTitle.inactiveForeground": "#f0f3f6",
     "panelInput.border": "#7a828e",
+    "debugIcon.breakpointForeground": "#ff6a69",
     "debugConsole.infoForeground": "#bdc4cc",
     "debugConsole.warningForeground": "#f0b72f",
     "debugConsole.errorForeground": "#ffb1af",
@@ -340,7 +342,6 @@
     {
       "scope": [
         "string",
-        "punctuation.definition.string",
         "string punctuation.section.embedded source"
       ],
       "settings": {
@@ -415,12 +416,6 @@
       }
     },
     {
-      "scope": "string source",
-      "settings": {
-        "foreground": "#f0f3f6"
-      }
-    },
-    {
       "scope": "string variable",
       "settings": {
         "foreground": "#91cbff"
@@ -463,6 +458,12 @@
       "scope": "support.variable",
       "settings": {
         "foreground": "#91cbff"
+      }
+    },
+    {
+      "scope": "support.type.property-name.json",
+      "settings": {
+        "foreground": "#72f088"
       }
     },
     {
@@ -513,6 +514,14 @@
       ],
       "settings": {
         "fontStyle": "underline"
+      }
+    },
+    {
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "fontStyle": "strikethrough"
       }
     },
     {

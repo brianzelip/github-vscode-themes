@@ -333,12 +333,6 @@
       }
     },
     {
-      "scope": "string source",
-      "settings": {
-        "foreground": "#e1e4e8"
-      }
-    },
-    {
       "scope": "string variable",
       "settings": {
         "foreground": "#79b8ff"
@@ -434,7 +428,15 @@
       }
     },
     {
-      "scope": "markup.raw",
+      "scope": [
+        "markup.strikethrough"
+      ],
+      "settings": {
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
+      "scope": "markup.inline.raw",
       "settings": {
         "foreground": "#79b8ff"
       }
