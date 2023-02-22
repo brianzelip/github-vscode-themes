@@ -29,7 +29,7 @@
     "input.background": "#0a0c10",
     "input.border": "#7a828e",
     "input.foreground": "#f0f3f6",
-    "input.placeholderForeground": "#7a828e",
+    "input.placeholderForeground": "#9ea7b3",
     "badge.foreground": "#0a0c10",
     "badge.background": "#409eff",
     "progressBar.background": "#409eff",
@@ -140,15 +140,18 @@
     "editorGutter.modifiedBackground": "#e09b13",
     "editorGutter.addedBackground": "#09b43a",
     "editorGutter.deletedBackground": "#ff6a69",
-    "diffEditor.insertedLineBackground": "#09b43a33",
-    "diffEditor.insertedTextBackground": "#09b43a4d",
-    "diffEditor.removedLineBackground": "#ff6a6933",
-    "diffEditor.removedTextBackground": "#ff6a694d",
+    "diffEditor.insertedLineBackground": "#09b43a26",
+    "diffEditor.insertedTextBackground": "#26cd4d4d",
+    "diffEditor.removedLineBackground": "#ff6a6926",
+    "diffEditor.removedTextBackground": "#ff94924d",
     "scrollbar.shadow": "#7a828e33",
-    "scrollbarSlider.background": "#9ea7b333",
-    "scrollbarSlider.hoverBackground": "#9ea7b345",
-    "scrollbarSlider.activeBackground": "#9ea7b387",
+    "scrollbarSlider.background": "#bdc4cc33",
+    "scrollbarSlider.hoverBackground": "#bdc4cc3d",
+    "scrollbarSlider.activeBackground": "#bdc4cc47",
     "editorOverviewRuler.border": "#010409",
+    "minimapSlider.background": "#bdc4cc33",
+    "minimapSlider.hoverBackground": "#bdc4cc3d",
+    "minimapSlider.activeBackground": "#bdc4cc47",
     "panel.background": "#010409",
     "panel.border": "#7a828e",
     "panelTitle.activeBorder": "#ff967d",
@@ -239,7 +242,7 @@
     "gitDecoration.modifiedResourceForeground": "#f0b72f",
     "gitDecoration.deletedResourceForeground": "#ff6a69",
     "gitDecoration.untrackedResourceForeground": "#26cd4d",
-    "gitDecoration.ignoredResourceForeground": "#7a828e",
+    "gitDecoration.ignoredResourceForeground": "#9ea7b3",
     "gitDecoration.conflictingResourceForeground": "#e7811d",
     "gitDecoration.submoduleResourceForeground": "#f0f3f6",
     "debugToolBar.background": "#272b33",
@@ -264,6 +267,15 @@
       ],
       "settings": {
         "foreground": "#bdc4cc"
+      }
+    },
+    {
+      "scope": [
+        "constant.other.placeholder",
+        "constant.character"
+      ],
+      "settings": {
+        "foreground": "#ff9492"
       }
     },
     {
@@ -635,8 +647,7 @@
         "string.other.link"
       ],
       "settings": {
-        "foreground": "#addcff",
-        "fontStyle": "underline"
+        "foreground": "#addcff"
       }
     }
   ]

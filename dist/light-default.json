@@ -137,14 +137,17 @@
     "editorGutter.addedBackground": "#4ac26b66",
     "editorGutter.deletedBackground": "#ff818266",
     "diffEditor.insertedLineBackground": "#aceebb4d",
-    "diffEditor.insertedTextBackground": "#6fdd8b66",
+    "diffEditor.insertedTextBackground": "#6fdd8b80",
     "diffEditor.removedLineBackground": "#ffcecb4d",
-    "diffEditor.removedTextBackground": "#ffaba866",
+    "diffEditor.removedTextBackground": "#ff818266",
     "scrollbar.shadow": "#6e778133",
     "scrollbarSlider.background": "#8c959f33",
-    "scrollbarSlider.hoverBackground": "#8c959f45",
-    "scrollbarSlider.activeBackground": "#8c959f87",
+    "scrollbarSlider.hoverBackground": "#8c959f3d",
+    "scrollbarSlider.activeBackground": "#8c959f47",
     "editorOverviewRuler.border": "#ffffff",
+    "minimapSlider.background": "#8c959f33",
+    "minimapSlider.hoverBackground": "#8c959f3d",
+    "minimapSlider.activeBackground": "#8c959f47",
     "panel.background": "#f6f8fa",
     "panel.border": "#d0d7de",
     "panelTitle.activeBorder": "#fd8c73",
@@ -230,7 +233,7 @@
     "debugToolBar.background": "#ffffff",
     "editor.stackFrameHighlightBackground": "#d4a72c66",
     "editor.focusedStackFrameHighlightBackground": "#4ac26b66",
-    "settings.headerForeground": "#57606a",
+    "settings.headerForeground": "#24292f",
     "settings.modifiedItemIndicator": "#d4a72c66",
     "welcomePage.buttonBackground": "#f6f8fa",
     "welcomePage.buttonHoverBackground": "#f3f4f6"
@@ -245,6 +248,15 @@
       ],
       "settings": {
         "foreground": "#6e7781"
+      }
+    },
+    {
+      "scope": [
+        "constant.other.placeholder",
+        "constant.character"
+      ],
+      "settings": {
+        "foreground": "#cf222e"
       }
     },
     {
@@ -616,8 +628,7 @@
         "string.other.link"
       ],
       "settings": {
-        "foreground": "#0a3069",
-        "fontStyle": "underline"
+        "foreground": "#0a3069"
       }
     }
   ]

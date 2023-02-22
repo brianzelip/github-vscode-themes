@@ -29,8 +29,8 @@
     "input.background": "#0d1117",
     "input.border": "#30363d",
     "input.foreground": "#c9d1d9",
-    "input.placeholderForeground": "#484f58",
-    "badge.foreground": "#f0f6fc",
+    "input.placeholderForeground": "#6e7681",
+    "badge.foreground": "#ffffff",
     "badge.background": "#1f6feb",
     "progressBar.background": "#1f6feb",
     "titleBar.activeForeground": "#8b949e",
@@ -41,7 +41,7 @@
     "activityBar.foreground": "#c9d1d9",
     "activityBar.inactiveForeground": "#8b949e",
     "activityBar.background": "#0d1117",
-    "activityBarBadge.foreground": "#f0f6fc",
+    "activityBarBadge.foreground": "#ffffff",
     "activityBarBadge.background": "#1f6feb",
     "activityBar.activeBorder": "#f78166",
     "activityBar.border": "#30363d",
@@ -80,7 +80,7 @@
     "statusBar.border": "#30363d",
     "statusBar.focusBorder": "#1f6feb80",
     "statusBar.noFolderBackground": "#0d1117",
-    "statusBar.debuggingForeground": "#f0f6fc",
+    "statusBar.debuggingForeground": "#ffffff",
     "statusBar.debuggingBackground": "#da3633",
     "statusBarItem.prominentBackground": "#6e768166",
     "statusBarItem.remoteForeground": "#c9d1d9",
@@ -136,15 +136,18 @@
     "editorGutter.modifiedBackground": "#bb800966",
     "editorGutter.addedBackground": "#2ea04366",
     "editorGutter.deletedBackground": "#f8514966",
-    "diffEditor.insertedLineBackground": "#23863633",
-    "diffEditor.insertedTextBackground": "#2386364d",
-    "diffEditor.removedLineBackground": "#da363333",
-    "diffEditor.removedTextBackground": "#da36334d",
+    "diffEditor.insertedLineBackground": "#23863626",
+    "diffEditor.insertedTextBackground": "#3fb9504d",
+    "diffEditor.removedLineBackground": "#da363326",
+    "diffEditor.removedTextBackground": "#ff7b724d",
     "scrollbar.shadow": "#484f5833",
-    "scrollbarSlider.background": "#6e768133",
-    "scrollbarSlider.hoverBackground": "#6e768145",
-    "scrollbarSlider.activeBackground": "#6e768187",
+    "scrollbarSlider.background": "#8b949e33",
+    "scrollbarSlider.hoverBackground": "#8b949e3d",
+    "scrollbarSlider.activeBackground": "#8b949e47",
     "editorOverviewRuler.border": "#010409",
+    "minimapSlider.background": "#8b949e33",
+    "minimapSlider.hoverBackground": "#8b949e3d",
+    "minimapSlider.activeBackground": "#8b949e47",
     "panel.background": "#010409",
     "panel.border": "#30363d",
     "panelTitle.activeBorder": "#f78166",
@@ -223,7 +226,7 @@
     "terminal.ansiBrightBlue": "#79c0ff",
     "terminal.ansiBrightMagenta": "#d2a8ff",
     "terminal.ansiBrightCyan": "#56d4dd",
-    "terminal.ansiBrightWhite": "#f0f6fc",
+    "terminal.ansiBrightWhite": "#ffffff",
     "editorBracketHighlight.foreground1": "#79c0ff",
     "editorBracketHighlight.foreground2": "#56d364",
     "editorBracketHighlight.foreground3": "#e3b341",
@@ -235,7 +238,7 @@
     "gitDecoration.modifiedResourceForeground": "#d29922",
     "gitDecoration.deletedResourceForeground": "#f85149",
     "gitDecoration.untrackedResourceForeground": "#3fb950",
-    "gitDecoration.ignoredResourceForeground": "#484f58",
+    "gitDecoration.ignoredResourceForeground": "#6e7681",
     "gitDecoration.conflictingResourceForeground": "#db6d28",
     "gitDecoration.submoduleResourceForeground": "#8b949e",
     "debugToolBar.background": "#161b22",
@@ -245,7 +248,7 @@
     "peekViewResult.matchHighlightBackground": "#bb800966",
     "peekViewEditor.background": "#6e76811a",
     "peekViewResult.background": "#0d1117",
-    "settings.headerForeground": "#8b949e",
+    "settings.headerForeground": "#c9d1d9",
     "settings.modifiedItemIndicator": "#bb800966",
     "welcomePage.buttonBackground": "#21262d",
     "welcomePage.buttonHoverBackground": "#30363d"
@@ -260,6 +263,15 @@
       ],
       "settings": {
         "foreground": "#8b949e"
+      }
+    },
+    {
+      "scope": [
+        "constant.other.placeholder",
+        "constant.character"
+      ],
+      "settings": {
+        "foreground": "#ff7b72"
       }
     },
     {
@@ -631,8 +643,7 @@
         "string.other.link"
       ],
       "settings": {
-        "foreground": "#a5d6ff",
-        "fontStyle": "underline"
+        "foreground": "#a5d6ff"
       }
     }
   ]
