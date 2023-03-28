@@ -2,6 +2,8 @@
 
 This project is just a npm package wrapper around Primer's [github-vscode-theme](https://github.com/primer/github-vscode-theme/). This project started when Primer's latest release was v4.1.1. This file will be auto updated via GitHub Actions.
 
+## [6.3.4] - 2023-03-28
+
 ## [6.3.3] - 2023-01-17
 
 ## [6.3.2] - 2022-07-19
@@ -28,6 +30,7 @@ This project is just a npm package wrapper around Primer's [github-vscode-theme]
 
 ## [4.1.0] - 2021-04-28
 
+[6.3.4]: https://github.com/primer/github-vscode-theme/releases/tag/v6.3.4
 [6.3.3]: https://github.com/primer/github-vscode-theme/releases/tag/v6.3.3
 [6.3.2]: https://github.com/primer/github-vscode-theme/releases/tag/v6.3.2
 [6.3.1]: https://github.com/primer/github-vscode-theme/releases/tag/v6.3.1
